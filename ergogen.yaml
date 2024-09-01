@@ -1,0 +1,179 @@
+points:
+  zones:
+    matrix:
+      anchor:
+        rotate: 5
+      columns:
+        outer:
+        pinky:
+          key:
+            spread: 1u
+            rows:
+              bottom:
+                column_net: P21
+              home:
+                column_net: P20
+              top:
+                column_net: P19
+        ring:
+          key:
+            spread: 1u
+            splay: -5
+            origin: [-45, -19]
+            stagger: 16
+            rows:
+              bottom:
+                column_net: P19
+              home:
+                column_net: P18
+              top:
+                column_net: P19
+        middle:
+          key:
+            spread: 1u
+            stagger: 5
+            rows:
+              bottom:
+                column_net: P15
+              home:
+                column_net: P14
+              top:
+                column_net: P19
+        index:
+          key:
+            spread: 1u
+            stagger: -6
+            rows:
+              bottom:
+                column_net: P26
+              home:
+                column_net: P10
+              top:
+                column_net: P19
+        inner:
+          key:
+            spread: 1u
+            stagger: -2
+            rows:
+      rows:
+        bottom:
+          padding: 17
+        home:
+          padding: 17
+        top:
+          padding: 17
+    thumb:
+      anchor:
+        ref: matrix_index_bottom
+        shift: [6, -22]
+      columns:
+        near:
+        home:
+          key.spread: 1u + 0.2
+          key.splay: -6
+          key.origin: [-11.75, -9]
+        far:
+          key.spread: 1u + 0.2
+          key.splay: -20
+          key.origin: [-9.5, -9]
+        farest:
+          key.spread: 1u + 0.2
+          key.splay: -20
+          key.origin: [-9.5, -9]
+  rotate: -20
+  mirror:
+    ref: matrix_pinky_home
+    distance: 240
+  key:
+    footprints:
+      mx:
+        type: mx
+        nets:
+          from: GND
+          to: "{{column_net}}"
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+
+outlines:
+  plate:
+    - what: rectangle
+      where: true
+      asym: source
+      size: 1u + 1
+      corner: 3
+    - what: rectangle
+      where: true
+      asym: source
+      size: 14
+      bound: false
+      operation: subtract
+  pcb_perimeter_raw:
+    - what: rectangle
+      where: true
+      asym: source
+      size: 18
+      corner: 1
+  keys:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [1u - 0.5,1u - 0.5]
+  board:
+    - what: polygon # all borders
+      operation: stack
+      points:
+        - ref: matrix_outer_top
+          shift: [0, 0]
+        - ref: matrix_middle_top
+          shift: [0, 0]
+        - ref: matrix_middle_top
+          shift: [0, 0]
+        - ref: matrix_inner_top
+          shift: [0, 0]
+        - ref: mirror_matrix_inner_top
+          shift: [0, 0]
+        - ref: mirror_matrix_middle_top
+          shift: [0, 0]
+        - ref: mirror_matrix_outer_top
+          shift: [0, 0]
+        - ref: mirror_matrix_outer_bottom
+          shift: [0, 0]
+        - ref: mirror_matrix_pinky_bottom
+          shift: [0, 0]
+        - ref: mirror_thumb_near
+          shift: [0, 0]
+        - ref: mirror_thumb_farest
+          shift: [0, 0]
+        - ref: thumb_farest
+          shift: [0, 0]
+        - ref: thumb_near
+          shift: [0, 0]
+        - ref: matrix_pinky_bottom
+          shift: [0, 0]
+        - ref: matrix_outer_bottom
+          shift: [0, 0]
+  pcb_perimeter:
+    - what: outline # keys
+      name: pcb_perimeter_raw
+    - what: outline
+      name: board
+      operation: add
+
+pcbs:
+  split-40:
+    outlines:
+      main:
+        outline: pcb_perimeter
+    footprints:
+      keys:
+        what: mx
+        where: true
+        params:
+          from: GND
+          to: "{{column_net}}"
+          keycaps: true
+          reverse: true
+          hotswap: true
+
