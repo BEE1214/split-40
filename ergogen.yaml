@@ -5,16 +5,25 @@ points:
         rotate: 5
       columns:
         outer:
+          key:
+            spread: 1u
+            rows:
+              bottom:
+                column_net: P15
+              home:
+                column_net: P14
+              top:
+                column_net: P13
         pinky:
           key:
             spread: 1u
             rows:
               bottom:
-                column_net: P21
+                column_net: P12
               home:
-                column_net: P20
+                column_net: P11
               top:
-                column_net: P19
+                column_net: P10
         ring:
           key:
             spread: 1u
@@ -23,33 +32,33 @@ points:
             stagger: 16
             rows:
               bottom:
-                column_net: P19
+                column_net: P09
               home:
-                column_net: P18
+                column_net: P08
               top:
-                column_net: P19
+                column_net: P07
         middle:
           key:
             spread: 1u
             stagger: 5
             rows:
               bottom:
-                column_net: P15
+                column_net: P06
               home:
-                column_net: P14
+                column_net: P05
               top:
-                column_net: P19
+                column_net: P04
         index:
           key:
             spread: 1u
             stagger: -6
             rows:
               bottom:
-                column_net: P26
+                column_net: P03
               home:
-                column_net: P10
+                column_net: P02
               top:
-                column_net: P19
+                column_net: P01
         inner:
           key:
             spread: 1u
@@ -83,7 +92,7 @@ points:
   rotate: -20
   mirror:
     ref: matrix_pinky_home
-    distance: 240
+    distance: 230
   key:
     footprints:
       mx:
@@ -113,7 +122,7 @@ outlines:
     - what: rectangle
       where: true
       asym: source
-      size: 18
+      size: 1u
       corner: 1
   keys:
     - what: rectangle
@@ -125,28 +134,38 @@ outlines:
       operation: stack
       points:
         - ref: matrix_outer_top
-          shift: [0, 0]
+          shift: [-3, 3]
+        - ref: matrix_ring_top
+          shift: [3, 3]
         - ref: matrix_middle_top
-          shift: [0, 0]
-        - ref: matrix_middle_top
-          shift: [0, 0]
+          shift: [-3, 3]
+        - ref: matrix_index_top
+          shift: [3, 3]
         - ref: matrix_inner_top
-          shift: [0, 0]
+          shift: [3, 3]
         - ref: mirror_matrix_inner_top
           shift: [0, 0]
         - ref: mirror_matrix_middle_top
           shift: [0, 0]
         - ref: mirror_matrix_outer_top
-          shift: [0, 0]
+          shift: [-3, 0]
         - ref: mirror_matrix_outer_bottom
           shift: [0, 0]
         - ref: mirror_matrix_pinky_bottom
           shift: [0, 0]
         - ref: mirror_thumb_near
           shift: [0, 0]
+        - ref: mirror_thumb_home
+          shift: [0,0]
+        - ref: mirror_thumb_far
+          shift: [0,0]
         - ref: mirror_thumb_farest
           shift: [0, 0]
         - ref: thumb_farest
+          shift: [0, 0]
+        - ref: thumb_far
+          shift: [0, 0]
+        - ref: thumb_home
           shift: [0, 0]
         - ref: thumb_near
           shift: [0, 0]
@@ -176,4 +195,3 @@ pcbs:
           keycaps: true
           reverse: true
           hotswap: true
-
