@@ -1,0 +1,5 @@
+# Untrack compressed files
+*.zip
+*.tar
+*.tar.gz
+*.rar
