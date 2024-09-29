@@ -1,197 +1,196 @@
-points:
-  zones:
-    matrix:
-      anchor:
-        rotate: 5
-      columns:
-        outer:
-          key:
-            spread: 1u
-            rows:
-              bottom:
-                column_net: P15
-              home:
-                column_net: P14
-              top:
-                column_net: P13
-        pinky:
-          key:
-            spread: 1u
-            rows:
-              bottom:
-                column_net: P12
-              home:
-                column_net: P11
-              top:
-                column_net: P10
-        ring:
-          key:
-            spread: 1u
-            splay: -5
-            origin: [-45, -19]
-            stagger: 16
-            rows:
-              bottom:
-                column_net: P09
-              home:
-                column_net: P08
-              top:
-                column_net: P07
-        middle:
-          key:
-            spread: 1u
-            stagger: 5
-            rows:
-              bottom:
-                column_net: P06
-              home:
-                column_net: P05
-              top:
-                column_net: P04
-        index:
-          key:
-            spread: 1u
-            stagger: -6
-            rows:
-              bottom:
-                column_net: P03
-              home:
-                column_net: P02
-              top:
-                column_net: P01
-        inner:
-          key:
-            spread: 1u
-            stagger: -2
-            rows:
-      rows:
-        bottom:
-          padding: 17
-        home:
-          padding: 17
-        top:
-          padding: 17
-    thumb:
-      anchor:
-        ref: matrix_index_bottom
-        shift: [6, -22]
-      columns:
-        near:
-        home:
-          key.spread: 1u + 0.2
-          key.splay: -6
-          key.origin: [-11.75, -9]
-        far:
-          key.spread: 1u + 0.2
-          key.splay: -20
-          key.origin: [-9.5, -9]
-        farest:
-          key.spread: 1u + 0.2
-          key.splay: -20
-          key.origin: [-9.5, -9]
-  rotate: -20
-  mirror:
-    ref: matrix_pinky_home
-    distance: 230
-  key:
-    footprints:
-      mx:
-        type: mx
-        nets:
-          from: GND
-          to: "{{column_net}}"
-        params:
-          keycaps: true
-          reverse: true
-          hotswap: true
 
-outlines:
-  plate:
-    - what: rectangle
-      where: true
-      asym: source
-      size: 1u + 1
-      corner: 3
-    - what: rectangle
-      where: true
-      asym: source
-      size: 14
-      bound: false
-      operation: subtract
-  pcb_perimeter_raw:
-    - what: rectangle
-      where: true
-      asym: source
-      size: 1u
-      corner: 1
-  keys:
-    - what: rectangle
-      where: true
-      bound: false
-      size: [1u - 0.5,1u - 0.5]
-  board:
-    - what: polygon # all borders
-      operation: stack
-      points:
-        - ref: matrix_outer_top
-          shift: [-3, 3]
-        - ref: matrix_ring_top
-          shift: [3, 3]
-        - ref: matrix_middle_top
-          shift: [-3, 3]
-        - ref: matrix_index_top
-          shift: [3, 3]
-        - ref: matrix_inner_top
-          shift: [3, 3]
-        - ref: mirror_matrix_inner_top
-          shift: [0, 0]
-        - ref: mirror_matrix_middle_top
-          shift: [0, 0]
-        - ref: mirror_matrix_outer_top
-          shift: [-3, 0]
-        - ref: mirror_matrix_outer_bottom
-          shift: [0, 0]
-        - ref: mirror_matrix_pinky_bottom
-          shift: [0, 0]
-        - ref: mirror_thumb_near
-          shift: [0, 0]
-        - ref: mirror_thumb_home
-          shift: [0,0]
-        - ref: mirror_thumb_far
-          shift: [0,0]
-        - ref: mirror_thumb_farest
-          shift: [0, 0]
-        - ref: thumb_farest
-          shift: [0, 0]
-        - ref: thumb_far
-          shift: [0, 0]
-        - ref: thumb_home
-          shift: [0, 0]
-        - ref: thumb_near
-          shift: [0, 0]
-        - ref: matrix_pinky_bottom
-          shift: [0, 0]
-        - ref: matrix_outer_bottom
-          shift: [0, 0]
-  pcb_perimeter:
-    - what: outline # keys
-      name: pcb_perimeter_raw
-    - what: outline
-      name: board
-      operation: add
+  points:
+    zones:
+      matrix:
+        anchor:
+          rotate: 5
+        columns:
+          outer:
+          pinky:
+            key:
+              spread: 1u + 0.4
+              rows:
+                bottom:
+                  column_net: P21
+                home:
+                  column_net: P20
+                top:
+                  column_net: P19
+          ring:
+            key:
+              spread: 1u + 0.4
+              splay: -5
+              origin: [-45, -19]
+              stagger: 16
+              rows:
+                bottom:
+                  column_net: P18
+                home:
+                  column_net: P17
+                top:
+                  column_net: P16
+          middle:
+            key:
+              spread: 1u + 0.4
+              stagger: 5
+              rows:
+                bottom:
+                  column_net: P15
+                home:
+                  column_net: P14
+                top:
+                  column_net: P13
+          index:
+            key:
+              spread: 1u + 0.4
+              stagger: -6
+              rows:
+                bottom:
+                  column_net: P12
+                home:
+                  column_net: P11
+                top:
+                  column_net: P10
+          inner:
+            key:
+              spread: 1u + 0.4
+              stagger: -2
+              rows:
+                bottom:
+                  column_net: P9
+                home:
+                  column_net: P8
+                top:
+                  column_net: P7
+        rows:
+          bottom:
+            padding: 1u + 0.4
+          home:
+            padding: 1u + 0.4
+          top:
+            padding: 1u + 0.4
+      thumb:
+        anchor:
+          ref: matrix_index_bottom
+          shift: [6, -22]
+        columns:
+          near:
+          home:
+            key.spread: 1u + 0.4
+            key.splay: -6
+            key.origin: [-11.75, -9]
+          far:
+            key.spread: 1u + 0.4
+            key.splay: -20
+            key.origin: [-9.5, -9]
+          farest:
+            key.spread: 1u + 0.4
+            key.splay: -20
+            key.origin: [-9.5, -9]
+    rotate: -20
+    mirror:
+      ref: matrix_pinky_home
+      distance: 230     
+    key:
+      footprints:
+        mx:
+          type: mx
+          params:
+            keycaps: true
+            reverse: true
+            hotswap: true
 
-pcbs:
-  split-40:
-    outlines:
-      main:
-        outline: pcb_perimeter
-    footprints:
-      keys:
-        what: mx
+  outlines:
+    plate_raw:
+      - what: rectangle
         where: true
-        params:
-          from: GND
-          to: "{{column_net}}"
-          keycaps: true
-          reverse: true
-          hotswap: true
+        asym: source
+        size: 1u + 6
+        corner: 2
+      - what: rectangle
+        where: true
+        asym: source
+        size: 16
+        bound: false
+        operation: subtract
+    pcb_perimeter_raw:
+      - what: rectangle
+        where: true
+        asym: source
+        size: 1u + 2
+        corner: 1
+      - what: rectangle
+        where: true
+        operation: add
+        size: 1u + 6
+    keys:
+      - what: rectangle
+        where: true
+        bound: false
+        size: [1u - 1, 1u - 1]
+    board:
+      - what: polygon # all borders
+        operation: stack
+        points:
+          - ref: matrix_outer_top
+            shift: [-16, 16]
+          - ref: matrix_middle_top
+            shift: [-18, 17]
+          - ref: matrix_inner_top
+            shift: [9, 20]
+          - ref: mirror_matrix_inner_top
+            shift: [9, 20]
+          - ref: mirror_matrix_middle_top
+            shift: [-18, 17]
+          - ref: mirror_matrix_outer_top
+            shift: [-16, 16]
+          - ref: mirror_matrix_outer_bottom
+            shift: [-16, -14]
+          - ref: mirror_matrix_pinky_bottom
+            shift: [-21, -20]
+          - ref: mirror_thumb_near
+            shift: [40, -14]
+          - ref: mirror_thumb_farest
+            shift: [13, -13]
+          - ref: thumb_farest
+            shift: [13, -13]
+          - ref: thumb_near
+            shift: [40, -14]
+          - ref: matrix_pinky_bottom
+            shift: [-21, -20]
+          - ref: matrix_outer_bottom
+            shift: [-16, -14]
+
+    pcb_perimeter:
+      - what: outline # keys
+        name: pcb_perimeter_raw
+      - what: outline
+        name: board
+        operation: add
+    key_temp:
+      - what: outline # only temp
+        name: keys
+        operation: stack
+    plate:
+      - what: outline
+        name: plate_raw
+      - what: outline
+        name: pcb_perimeter
+        operation: stack
+
+  pcbs:
+    split-40:
+      outlines:
+        main:
+          outline: pcb_perimeter
+      footprints:
+        keys:
+          what: mx
+          where: true
+          params:
+            from: GND
+            to: "{{column_net}}"
+            keycaps: true
+            reverse: true
+            hotswap: true
+
